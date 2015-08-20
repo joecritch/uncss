@@ -52,6 +52,8 @@ function filterUnusedSelectors(selectors, ignore, usedSelectors) {
     var i = 0;
     return selectors.filter(function (selector) {
         selector = dePseudify(selector);
+        selector = selector.replace('\@', '@');
+        selector = selector.replace('\:', ':');
         /* TODO: process @-rules */
         if (selector[0] === '@') {
             return true;
